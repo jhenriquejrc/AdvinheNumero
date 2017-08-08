@@ -13,14 +13,15 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
 
     EditText numero;
     TextView mensagem;
-    View.OnKeyListener ouvinte;
+    int aleatorio = (int)(Math.random()*100);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        numero.setOnKeyListener(ouvinte);
+        numero   = (EditText)findViewById(R.id.numero);
+        mensagem = (TextView)findViewById(R.id.mensagem);
+        numero.setOnKeyListener(this);
     }
 
     @Override
@@ -34,11 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
     }
 
     private void verificaPapite() {
-        numero   = (EditText)findViewById(R.id.numero);
-        mensagem = (TextView)findViewById(R.id.mensagem);
-        int aleatorio = (int) Math.random();
-        int nro = Integer.parseInt(numero.getText().toString());
 
+
+        int nro = Integer.parseInt(numero.getText().toString());
+        Log.v("Numero: ", Integer.toString(aleatorio));
         if(nro == aleatorio){
                 mensagem.setText("Acertou mizeravi");
         } else if(nro > aleatorio){
