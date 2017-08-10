@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
 
     EditText numero;
     TextView mensagem;
-    int aleatorio = (int)(Math.random()*100);
+    int aleatorio = (int)(Math.random()*101);
+    int palpites = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
 
     private void verificaPapite() {
 
-
+        palpites++;
         int nro = Integer.parseInt(numero.getText().toString());
         Log.v("Numero: ", Integer.toString(aleatorio));
         if(nro == aleatorio){
-                mensagem.setText("Acertou mizeravi");
+                mensagem.setText("Acertou mizeravi!!! Quantidade de palpites: " + palpites);
         } else if(nro > aleatorio){
             mensagem.setText("Valor acima do alvo");
         } else if (nro < aleatorio){
